@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+
+@layer components {
+    .sidelink {
+        @apply flex items-center rounded p-2 font-bold;
+    }
+
+    .sidelink:hover,
+    .sidelink:focus {
+        @apply bg-red-900 text-gray-50;
+    }
+
+    .navlink {
+        @apply flex py-1 px-4 rounded border-b;
+    }
+
+    .navlink:hover {
+        @apply bg-red-900 text-gray-50;
+    }
+
+    .mdnavlink {
+        @apply bg-transparent border-0;
+    }
+
+    .mdnavlink:hover,
+    .mdnavlink:focus {
+        @apply bg-transparent text-red-800 font-bold;
+    }
+
+    .navdropdown {
+        @apply flex px-6 py-2 rounded font-bold border-b items-center;
+    }
+
+    .navdropdown:hover {
+        @apply bg-red-900 text-gray-50;
+    }
+
+    .mdnavdropdown {
+        @apply px-4;
+    }
+
+    .btn-web {
+        @apply rounded-lg bg-gradient-to-br from-web-600 via-web-700 to-web-800 py-3 px-6 text-gray-50;
+    }
+
+    .btn-web:hover {
+        @apply bg-gradient-to-bl;
+    }
+
+    .btn-web:focus {
+        @apply outline-none ring-4 ring-red-500;
+    }
+}
+
+@tailwind utilities;
+
+.form-required::after {
+    content: '*';
+    color: red;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.swal2-title {
+    @apply font-sans !important;
+    font-size: 18px !important;
+}
