@@ -26,3 +26,7 @@ require __DIR__ . '/auth.php';
 require __DIR__ . '/user.php';
 
 Route::resource('admin/user', UserController::class, ['names' => 'admin.user']);
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});

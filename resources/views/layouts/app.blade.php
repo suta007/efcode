@@ -17,6 +17,7 @@
 	@vite(['resources/css/app.css'])
 	<link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/datatable.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/css-tooltip.min.css') }}">
 	<style>
 		html {
 			font-size: 14px;
@@ -36,7 +37,7 @@
 	<script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 	{{-- 	@include('sweetalert::alert') --}}
 	@include('sweetalert::alert', ['cdn' => 'https://cdn.jsdelivr.net/npm/sweetalert2@11'])
-
+	@yield('js-file')
 	<script type="module">
 			$("#togglesidebar").on("click", function () {
 				$("aside").toggle();

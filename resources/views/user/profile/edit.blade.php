@@ -7,8 +7,8 @@
 				<form action="{{ route('user.profile.update') }}" method="post" enctype="multipart/form-data">
 					@csrf
 					@method('PATCH')
-					<x-input type="text" val="name" label="ชื่อ - สกุล" :value="old('name', $data->name)" :errors="$errors" />
-					<x-input type="email" val="email" label="อีเมล์" :value="old('email', $data->email)" :errors="$errors" />
+					<x-input type="text" val="name" label="ชื่อ - สกุล" :value="old('name', $data->name)" class="col-span-3" lbcls="col-span-2" :errors="$errors" />
+					<x-input type="email" val="email" label="อีเมล์" :value="old('email', $data->email)" class="col-span-3" lbcls="col-span-2" :errors="$errors" />
 					<x-submit><i class="fa-solid fa-floppy-disk mr-2"></i>บันทึก</x-submit>
 				</form>
 			</div>

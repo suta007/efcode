@@ -7,9 +7,9 @@
 				<form action="{{ route('user.profile.store') }}" method="post" enctype="multipart/form-data">
 					@csrf
 					@method('PATCH')
-					<x-input type="password" val="current_password" label="รหัสผ่านปัจจุบัน" :errors="$errors" />
-					<x-input type="password" val="new_password" label="รหัสผ่านใหม่" :errors="$errors" minlength="8" />
-					<x-input type="password" val="new_password_confirmation" label="ยืนยันรหัสผ่านใหม่" :errors="$errors" minlength="8" />
+					<x-input type="password" val="current_password" label="รหัสผ่านปัจจุบัน" class="col-span-3" lbcls="col-span-2" :errors="$errors" />
+					<x-input type="password" val="new_password" label="รหัสผ่านใหม่" class="col-span-3" lbcls="col-span-2" :errors="$errors" minlength="8" />
+					<x-input type="password" val="new_password_confirmation" label="ยืนยันรหัสผ่านใหม่" class="col-span-3" lbcls="col-span-2" :errors="$errors" minlength="8" />
 					<x-submit><i class="fa-solid fa-floppy-disk mr-2"></i>บันทึก</x-submit>
 				</form>
 			</div>

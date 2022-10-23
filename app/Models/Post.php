@@ -14,5 +14,6 @@ class Post extends Model
         'name',
         'slug',
         'content',
+        'user_id'
     ];
 }

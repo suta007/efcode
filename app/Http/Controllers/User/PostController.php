@@ -35,6 +35,7 @@ class PostController extends Controller
                 'content' => fake()->paragraph($nbSentences = 3, $variableNbSentences = true)
             ]);
         } */
+        return view('user.post.create');
     }
 
     /**
@@ -45,7 +46,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:255',
+        ], [
+            'name.required' => 'ต้องกรอกข้อมูลนี้',
+        ]);
+
+        $inputData = $request->all();
+        $inputData["slug"] = Slug::slugify($request->name);
+        $inputData["user_id"] = auth()->user()->id;
+        Post::create($inputData);
+        return redirect()->route('user.post.index')->with('success', 'สร้างบทความเรียบร้อยแล้ว');
     }
 
     /**
@@ -54,18 +65,24 @@ class PostController extends Controller
      * @param  \App\Models\Posts  $posts
      * @return \Illuminate\Http\Response
      */
-    public function show(Posts $posts)
+    public function show($id)
     {
-        //
+        $data = Post::findOrFail($id);
+        return view('user.post.show', compact('data'));
     }
 
+    public function slug($slug)
+    {
+        $data = Post::whereSlug($slug)->first();
+        return view('user.post.show', compact('data'));
+    }
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Posts  $posts
      * @return \Illuminate\Http\Response
      */
-    public function edit(Posts $posts)
+    public function edit($id)
     {
         //
     }
@@ -77,7 +94,7 @@ class PostController extends Controller
      * @param  \App\Models\Posts  $posts
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Posts $posts)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -88,7 +105,7 @@ class PostController extends Controller
      * @param  \App\Models\Posts  $posts
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Posts $posts)
+    public function destroy($id)
     {
         //
     }

@@ -11,8 +11,8 @@
 				ผู้ดูแลระบบ <i class="fa-solid fa-caret-down ml-auto items-center"></i>
 			</button>
 			<ul class="mt-2 hidden space-y-2" id="menux">
-				<li><a href="#" class="sidelink pl-4"> aaa </a></li>
-				<li><a href="#" class="sidelink pl-4"> bbb </a></li>
+				<li><a href="{{ route('user.post.index') }}" class="sidelink pl-4"><i class="fa-solid fa-blog mr-2"></i>บทความ </a></li>
+				<li><a href="{{ route('user.page.index') }}" class="sidelink pl-4"><i class="fa-solid fa-file-image mr-2"></i>หน้าเว็บ </a></li>
 			</ul>
 		</li>
 		{{-- <li><a href="#" class="sidelink">Dashboard</a></li> --}}

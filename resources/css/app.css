@@ -41,15 +41,30 @@
     }
 
     .btn-web {
-        @apply rounded-lg bg-gradient-to-br from-web-600 via-web-700 to-web-800 py-3 px-6 text-gray-50;
+        @apply rounded-lg bg-gradient-to-br from-web-600 via-web-700 to-web-800 py-3 px-6 border border-web-700 text-gray-50;
     }
 
-    .btn-web:hover {
+    .btn-web:hover,
+    .btn-show:hover,
+    .btn-edit:hover,
+    .btn-del:hover {
         @apply bg-gradient-to-bl;
     }
 
     .btn-web:focus {
-        @apply outline-none ring-4 ring-red-500;
+        @apply outline-none ring-2 ring-red-500;
+    }
+
+    .btn-show {
+        @apply rounded bg-gradient-to-br from-sky-400 via-sky-500 to-sky-600 py-1 px-2 border border-sky-500 text-gray-50;
+    }
+
+    .btn-edit {
+        @apply rounded bg-gradient-to-br from-green-400 via-green-500 to-green-600 py-1 px-2 border border-green-500 text-gray-50;
+    }
+
+    .btn-del {
+        @apply rounded bg-gradient-to-br from-rose-400 via-rose-500 to-rose-600 py-1 px-2 border border-rose-500 text-gray-50;
     }
 }
 
