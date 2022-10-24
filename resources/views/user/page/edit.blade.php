@@ -6,12 +6,13 @@
 				<div class="text-xl font-bold text-web-700">แก้ไขหน้าเว็บ</div>
 				<div>
 					<a href="{{ route('user.page.index') }}" class="btn-web mr-3"><i class="fa-solid fa-circle-left mr-2"></i>กลับ</a>
-					<a href="{{ route('user.page.show', $data->id) }}" class="btn-show rounded-lg py-3 px-4" data-tooltip="ดูหน้าเว็บ"><i class="fa-solid fa-eye mr-2"></i> ดูหน้าเว็บ</a>
+					<a href="{{ route('user.page.show', $data->id) }}" class="btn-show rounded-lg py-3 px-4" target="_blank"><i class="fa-solid fa-eye mr-2"></i> ดูหน้าเว็บ</a>
 				</div>
 			</div>
 			<div class="rounded-md bg-white py-4 px-8 shadow-md">
-				<form action="{{ route('user.page.store') }}" method="post" enctype="multipart/form-data">
+				<form action="{{ route('user.page.update', $data->id) }}" method="post" enctype="multipart/form-data">
 					@csrf
+					@method('PATCH')
 					<x-input type="text" val="name" label="ชื่อบทความ" :value="old('name', $data->name)" class="col-span-5" lbcls="col-span-1" :errors="$errors" />
 					<div class="mb-3 grid grid-cols-6 content-center gap-x-4">
 						<label for="content" class="col-span-1 flex md:justify-end">เนื้อหา</label>

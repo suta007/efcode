@@ -42,6 +42,23 @@
 			$("#togglesidebar").on("click", function () {
 				$("aside").toggle();
 			});
+
+			$(".del-cfm").click(function(e) {
+			e.preventDefault();
+			var x = $(this).closest('tr').find("td:eq(1)").text();
+			Swal.fire({
+				icon: 'question',
+				title: 'ต้องการลบ ' + x + '?',
+				showCancelButton: true,
+				confirmButtonColor: '#dc3545',
+				confirmButtonText: 'ลบ',
+				cancelButtonText: 'ยกเลิก'
+			}).then((result) => {
+				if (result.isConfirmed) {
+					$(e.target).closest('form').submit();
+				}
+			})
+		});
 	</script>
 	@yield('script')
 </body>

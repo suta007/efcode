@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
+use App\Models\Page;
+use App\Models\Tag;
+use App\Classes\Slug;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +19,19 @@ use App\Http\Controllers\Admin\UserController;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/test', function () {
+    $arr = ['krit suta', 'Ef code'];
+    // $tag = new Post;
+
+    //$tag->testtag();
+    $post = Page::find(2);
+    $post->Addtag($arr);
+    /*     $tag = new Tag;
+    $tag->name = "efcode.com";
+    $tag->slug = Slug::slugify("efcode.com");
+    $post->tags()->save($tag); */
 });
 
 Route::get('/dashboard', function () {

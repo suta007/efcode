@@ -59,7 +59,8 @@
     "extra": {
         "laravel": {
             "dont-discover": [
-                "barryvdh/laravel-ide-helper"
+                "barryvdh/laravel-ide-helper",
+                "suta007/sutacrud"
             ]
         }
     },
@@ -71,6 +72,12 @@
             "pestphp/pest-plugin": true
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/suta007/sutacrud"
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true
 }

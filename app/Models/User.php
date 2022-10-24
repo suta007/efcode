@@ -70,4 +70,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function posts()
+    {
+        return $this->hasOne(Post::class);
+    }
+
+    public function pages()
+    {
+        return $this->hasOne(Pages::class);
+    }
 }

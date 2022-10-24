@@ -28,7 +28,7 @@
 									<form method="POST" action="{{ route('user.page.destroy', $item->id) }}" accept-charset="UTF-8" style="display:inline">
 										@method('DELETE')
 										@csrf
-										<button type="submit" class="btn-del del" data-tooltip="ลบ {{ $item->name }}"><i class="fa-solid fa-trash-can"></i></button>
+										<button type="submit" class="btn-del del-cfm" data-tooltip="ลบ {{ $item->name }}"><i class="fa-solid fa-trash-can"></i></button>
 									</form>
 								</td>
 							</tr>
