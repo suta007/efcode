@@ -1,4 +1,12 @@
 @extends('layouts.app')
+@section('style')
+	<link rel="stylesheet" href="{{ asset('css/jquery.flexdatalist.min.css') }}">
+	<style>
+		.flexdatalist-multiple li.value {
+			background: #ffe4e6;
+		}
+	</style>
+@endsection
 @section('content')
 	<div class="grid">
 		<div class="mx-auto w-full">
@@ -20,6 +28,18 @@
 							</textarea>
 						</div>
 					</div>
+
+					<div class="mb-3 grid grid-cols-6 content-center gap-x-4">
+						<label for="tags" class="form-required col-span-1 flex items-center md:justify-end">Tags</label>
+						<div class="col-span-5">
+							<input type='text' class='rounded border border-gray-300 bg-gray-50 py-1 px-2 focus:border-web-900 focus:ring-web-900' data-min-length='1' list='taglist' name='tag' id="tag" multiple='multiple'>
+							<datalist id="taglist">
+								@foreach ($tags as $item)
+									<option value="{{ $item->name }}">{{ $item->name }}</option>
+								@endforeach
+							</datalist>
+						</div>
+					</div>
 					<x-submit><i class="fa-solid fa-floppy-disk mr-2"></i>บันทึก</x-submit>
 				</form>
 			</div>
@@ -27,20 +47,17 @@
 	</div>
 @endsection
 @section('js-file')
+	<script src="{{ asset('js/jquery.flexdatalist.min.js') }}"></script>
 	<script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
 	<script src="{{ asset('js/tinymceconfig.js') }}"></script>
 @endsection
 @section('script')
-	<script type="module">
+	<script>
 		$(document).ready(function() {
-			$('#dataTable').DataTable({
-				"order": [[0,'desc']],
-				pageLength: 25,
-				language: {
-					url: "{{ asset('js/lang/th2.json') }}",
-				},
+			$('#tag').flexdatalist({
+				minLength: 1,
+				valuesSeparator: ','
 			});
 		});
-
 	</script>
 @endsection

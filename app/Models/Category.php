@@ -17,7 +17,7 @@ class Category extends Model
         'name', 'slug'
     ];
 
-    public function posts()
+    public function post()
     {
         return $this->hasOne(Post::class);
     }

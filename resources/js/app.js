@@ -1,15 +1,13 @@
-import $ from "jquery";
-
-
-window.jQuery = window.$ = $
+/* import $ from "jquery";
+window.jQuery = window.$ = $ */
 
 /* import jQuery from 'jquery';
 window.$ = jQuery;
 window.$ = $;  */
 
-import DataTable from 'datatables.net';
+/* import DataTable from 'datatables.net';
 window.DataTable = DataTable;
-DataTable($);
+DataTable($); */
 
 
 import './bootstrap';

@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Classes\Slug;
+use App\Classes\HasTag;
 
 
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTag;
     protected $table = 'posts';
 
     protected $fillable = [
@@ -17,25 +17,9 @@ class Post extends Model
         'slug',
         'content',
         'user_id',
-        'category _id'
+        'category_id',
+        'picture'
     ];
-
-    public function Addtag(array $posttag = [])
-    {
-        foreach ($posttag as $item) {
-            $tag = Tag::firstOrCreate([
-                'name' => $item,
-                'slug' => Slug::slugify($item)
-            ]);
-            $tag->increment('weight');
-
-            Taggable::firstOrCreate([
-                'tag_id' => $tag->id,
-                'taggable_id' => $this->id,
-                'taggable_type' => get_class(),
-            ]);
-        }
-    }
 
     public function tags()
     {
@@ -44,7 +28,7 @@ class Post extends Model
 
     public function cate()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'id');
     }
 
     public function user()

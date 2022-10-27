@@ -5,6 +5,7 @@ var editor_config = {
     plugins: 'code table lists link image preview fullscreen media',
     toolbar: 'undo redo | bold italic removeformat | alignleft aligncenter alignright alignjustify | indent outdent bullist numlist | link image | preview media fullscreen | code',
     content_css: "/css/app.css",
+    content_style: "body {padding: 20px;font-family:Sarabun;}",
     file_picker_callback: function (callback, value, meta) {
         var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
         var y = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;

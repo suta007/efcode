@@ -1,33 +1,20 @@
 @extends('layouts.app')
-
 @section('content')
-	<x-div class="mx-auto fw-bold fs-5 mb-2 col-12 text-web">
-		เพิ่มCategory
-
-		<a href="{{ route('user.category.index') }}" class="btn btn-outline-web btn-sm float-end"><i class="fa-solid fa-arrow-left me-2"></i>กลับ</a>
-	</x-div>
-	<div class="clearfix"></div>
-	<x-div class="mx-auto px-5 col-12">
-		@include('layouts.message')
-		<form method="POST" action="{{ route('user.category.store') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
-			@csrf
-			<div class="row mb-3">
-				<label for="name" class="col-3 col-form-label text-md-end form-required">ชื่อCategory</label>
-				<div class="col-9">
-					<input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" required autofocus>
-
-					@error('name')
-						<span class="invalid-feedback" role="alert">
-							<strong>{{ $message }}</strong>
-						</span>
-					@enderror
+	<div class="grid">
+		<div class="mx-auto w-full lg:w-3/5">
+			<div class="mb-3 flex justify-between rounded-md bg-white p-6 text-web-700 shadow-md">
+				<div class="text-xl font-bold text-web-700">เพิ่มหมวดหมู่</div>
+				<div>
+					<a href="{{ route('user.category.index') }}" class="btn-web mr-3"><i class="fa-solid fa-circle-left mr-2"></i>กลับ</a>
 				</div>
 			</div>
-
-			<div class="row col-6 mx-auto">
-				<button type="submit" class="btn btn-web py-3"><i class="fa-solid fa-floppy-disk me-2"></i>บันทึก</button>
+			<div class="rounded-md bg-white py-4 px-8 shadow-md">
+				<form action="{{ route('user.category.store') }}" method="post" enctype="multipart/form-data">
+					@csrf
+					<x-input type="text" val="name" label="ชื่อหมวดหมู่" :value="old('name')" class="col-span-3" lbcls="col-span-2" :errors="$errors" />
+					<x-submit><i class="fa-solid fa-floppy-disk mr-2"></i>บันทึก</x-submit>
+				</form>
 			</div>
-
-		</form>
-	</x-div>
+		</div>
+	</div>
 @endsection

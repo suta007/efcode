@@ -23,6 +23,7 @@
 			font-size: 14px;
 		}
 	</style>
+	@yield('style')
 </head>
 
 <body class="bg-slate-50 font-sans antialiased">
@@ -33,17 +34,19 @@
 			@yield('content')
 		</main>
 	</div>
-	@vite(['resources/js/app.js'])
+	{{-- 	@vite(['resources/js/app.js']) --}}
+	<script src="{{ asset('js/jquery-3.6.1.min.js') }}"></script>
+	<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 	<script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 	{{-- 	@include('sweetalert::alert') --}}
 	@include('sweetalert::alert', ['cdn' => 'https://cdn.jsdelivr.net/npm/sweetalert2@11'])
 	@yield('js-file')
-	<script type="module">
-			$("#togglesidebar").on("click", function () {
-				$("aside").toggle();
-			});
+	<script>
+		$("#togglesidebar").on("click", function() {
+			$("aside").toggle();
+		});
 
-			$(".del-cfm").click(function(e) {
+		$(".del-cfm").click(function(e) {
 			e.preventDefault();
 			var x = $(this).closest('tr').find("td:eq(1)").text();
 			Swal.fire({

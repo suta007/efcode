@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Page;
+use App\Models\Tag;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Classes\Slug;
@@ -28,7 +29,8 @@ class PageController extends Controller
     public function create()
     {
         //
-        return view('user.page.create');
+        $tags = Tag::all();
+        return view('user.page.create', compact('tags'));
     }
 
     /**
@@ -48,7 +50,8 @@ class PageController extends Controller
         $inputData = $request->all();
         $inputData["slug"] = Slug::slugify($request->name);
         $inputData["user_id"] = auth()->user()->id;
-        Page::create($inputData);
+        $page = Page::create($inputData);
+        $page->Addtag($request->tag);
         return redirect()->route('user.page.index')->with('success', 'สร้างหน้าเว็บเรียบร้อยแล้ว');
     }
 
@@ -78,7 +81,8 @@ class PageController extends Controller
     public function edit($id)
     {
         $data = Page::findOrFail($id);
-        return view('user.page.edit', compact('data'));
+        $tags = Tag::all();
+        return view('user.page.edit', compact('data', 'tags'));
     }
 
     /**
@@ -101,6 +105,7 @@ class PageController extends Controller
         $inputData["slug"] = Slug::slugify($request->name);
         $result = Page::findOrFail($id);
         $result->update($inputData);
+        $result->Addtag($request->tag);
         return redirect()->back()->with('success', 'บันทึกข้อมูลแล้ว');
     }
 
@@ -112,7 +117,9 @@ class PageController extends Controller
      */
     public function destroy($id)
     {
-        Page::destroy($id);
+        $page = Page::findOrFail($id);
+        $page->Deltag();
+        $page->delete();
         return redirect()->route('user.page.index')->with('info', 'ลบหน้าเว็บเรียบร้อยแล้ว');
     }
 }

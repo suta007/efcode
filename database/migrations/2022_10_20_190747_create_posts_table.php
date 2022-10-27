@@ -17,9 +17,10 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug');
+            $table->string('picture')->nullable();
             $table->text('content');
             $table->integer('user_id')->unsigned();
-            $table->integer('category _id')->unsigned();
+            $table->integer('category_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

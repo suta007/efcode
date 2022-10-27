@@ -22,7 +22,7 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    $arr = ['krit suta', 'Ef code'];
+    $arr = 'krit suta';
     // $tag = new Post;
 
     //$tag->testtag();

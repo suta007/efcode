@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\PostController;
 use App\Http\Controllers\User\PageController;
+use App\Http\Controllers\User\CategoryController;
 
 Route::middleware('auth')->group(function () {
 
@@ -19,4 +20,6 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/user/page', PageController::class, ['names' => 'user.page']);
     Route::get('/user/page/slug/{slug}', [PageController::class, 'slug'])->name('user.page.slug');
+
+    Route::resource('/user/category', CategoryController::class, ['names' => 'user.category']);
 });

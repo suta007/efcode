@@ -14,6 +14,8 @@
 						<tr>
 							<th class="dt-center dt-nowrap">#</th>
 							<th class="dt-center">name</th>
+							<th class="dt-center">category</th>
+							<th class="dt-center">Owner</th>
 							<th class="dt-center dt-nowrap">action</th>
 						</tr>
 					</thead>
@@ -22,6 +24,8 @@
 							<tr>
 								<td class="dt-center dt-nowrap" style="width:1%;">{{ $item->id }}</td>
 								<td><a href="{{ route('user.post.slug', $item->slug) }}">{{ $item->name }}</a></td>
+								<td><a href="{{ route('user.post.slug', $item->cate->slug) }}">{{ $item->cate->name }}</a></td>
+								<td>{{ $item->user->name }}</td>
 								<td class="dt-center dt-nowrap" style="width:1%;">
 									<a href="{{ route('user.post.show', $item->id) }}" class="btn-show" data-tooltip="แสดง {{ $item->name }}"><i class="fa-solid fa-eye"></i></a>
 									<a href="{{ route('user.post.edit', $item->id) }}" class="btn-edit" data-tooltip="แก้ไข {{ $item->name }}"><i class="fa-solid fa-pen-to-square"></i></a>
