@@ -6,7 +6,7 @@ use App\Http\Controllers\User\PostController;
 use App\Http\Controllers\User\PageController;
 use App\Http\Controllers\User\CategoryController;
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth:web')->group(function () {
 
     Route::controller(ProfileController::class)->group(function () {
         Route::get('/user/profile/edit', 'edit')->name('user.profile.edit');

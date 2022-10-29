@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\SocialController;
 use App\Http\Controllers\IndexController;
 use App\Models\Page;
 
@@ -23,30 +23,24 @@ Route::get('/', function () {
 
 Route::controller(IndexController::class)->group(function () {
     Route::get('/บทความ/{slug}', 'article')->name('acticle');
-});
-
-Route::get('/test', function () {
-    $arr = 'krit suta';
-    // $tag = new Post;
-
-    //$tag->testtag();
-    $post = Page::find(2);
-    $post->Addtag($arr);
-    /*     $tag = new Tag;
-    $tag->name = "efcode.com";
-    $tag->slug = Slug::slugify("efcode.com");
-    $post->tags()->save($tag); */
+    Route::get('/หมวดหมู่/{slug}', 'category')->name('category');
+    Route::get('/แท๊ก/{slug}', 'tag')->name('tag');
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth:web', 'verified'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/user.php';
 
-Route::resource('admin/user', UserController::class, ['names' => 'admin.user']);
+//Route::resource('admin/user', UserController::class, ['names' => 'admin.user']);
 
-Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth:web']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
+
+Route::get('/user/page/slug/{slug}', [PageController::class, 'slug'])->name('user.page.slug');
+
+Route::get('/login/{provider}', [SocialController::class, 'redirect'])->where('provider', 'twitter|facebook|linkedin|google|github|bitbucket')->name('login.redirect');
+Route::get('/login/{provider}/callback', [SocialController::class, 'Callback'])->where('provider', 'twitter|facebook|linkedin|google|github|bitbucket')->name('login.callback');

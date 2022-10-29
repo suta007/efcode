@@ -11,4 +11,14 @@ class IndexController extends Controller
         $data = Post::whereSlug($slug)->first();
         return view('index.article', compact('data'));
     }
+
+    public function category($slug)
+    {
+        //
+    }
+
+    public function tag($slug)
+    {
+        //
+    }
 }

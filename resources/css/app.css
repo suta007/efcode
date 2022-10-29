@@ -66,6 +66,14 @@
     .btn-del {
         @apply rounded bg-gradient-to-br from-rose-400 via-rose-500 to-rose-600 py-1 px-2 border border-rose-500 text-gray-50;
     }
+
+    .tag a {
+        @apply text-gray-700 text-sm;
+    }
+
+    .tag a:hover {
+        @apply text-web-700;
+    }
 }
 
 @tailwind utilities;

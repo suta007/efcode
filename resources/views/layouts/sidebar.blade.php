@@ -4,6 +4,7 @@
 			<img src="{{ asset('images/logo.png') }}" class="mr-2 h-10">
 			<span class="text-xl font-bold text-red-800">{{ config('app.name', 'Laravel') }}</span>
 		</li>
+		<li><a href="/" class="sidelink"><i class="fa-solid fa-house mr-2"></i>Home</a></li>
 		<li><a href="{{ url('/dashboard') }}" class="sidelink"><i class="fa-solid fa-gauge mr-2"></i>Dashboard</a></li>
 		{{-- 		<li>
 			<button aria-controls="menux" data-collapse-toggle="menux" type="button" class="sidelink w-full">
