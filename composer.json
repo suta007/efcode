@@ -29,8 +29,7 @@
         "nunomaduro/collision": "^6.1",
         "phpunit/phpunit": "^9.5.10",
         "spatie/laravel-ignition": "^1.0",
-        "thiagocordeiro/laravel-translator": "^1.2",
-        "suta007/sutacrud": "^1.0"
+        "thiagocordeiro/laravel-translator": "^1.2"
     },
     "autoload": {
         "psr-4": {
@@ -62,8 +61,7 @@
     "extra": {
         "laravel": {
             "dont-discover": [
-                "barryvdh/laravel-ide-helper",
-                "suta007/sutacrud"
+                "barryvdh/laravel-ide-helper"
             ]
         }
     },
@@ -75,12 +73,6 @@
             "pestphp/pest-plugin": true
         }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/suta007/sutacrud"
-        }
-    ],
     "minimum-stability": "dev",
     "prefer-stable": true
 }
