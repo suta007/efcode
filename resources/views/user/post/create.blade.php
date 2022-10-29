@@ -36,7 +36,7 @@
 					<div class="mb-3 grid grid-cols-6 content-center gap-x-4">
 						<label for="tags" class="form-required col-span-1 flex items-center md:justify-end">Tags</label>
 						<div class="col-span-5">
-							<input type='text' class='rounded border border-gray-300 bg-gray-50 py-1 px-2 focus:border-web-900 focus:ring-web-900' data-min-length='1' list='taglist' name='tag' id="tag" multiple='multiple'>
+							<input type='text' class='rounded border border-gray-300 bg-gray-50 py-1 px-2 focus:border-web-900 focus:ring-web-900' data-min-length='1' list='taglist' name='tag' id="tag" multiple='multiple' required>
 							<datalist id="taglist">
 								@foreach ($tags as $item)
 									<option value="{{ $item->name }}">{{ $item->name }}</option>

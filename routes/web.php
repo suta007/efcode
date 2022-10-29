@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\IndexController;
 use App\Models\Page;
-use App\Models\Tag;
-use App\Classes\Slug;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +18,11 @@ use App\Classes\Slug;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index.index');
+});
+
+Route::controller(IndexController::class)->group(function () {
+    Route::get('/บทความ/{slug}', 'article')->name('acticle');
 });
 
 Route::get('/test', function () {

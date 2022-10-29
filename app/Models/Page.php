@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Classes\HasTag;
+use Laravel\Scout\Searchable;
 
 class Page extends Model
 {
-    use HasFactory, HasTag;
+    use HasFactory, HasTag, Searchable;
     protected $table = 'pages';
 
     protected $fillable = [
@@ -26,5 +27,10 @@ class Page extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function searchableAs()
+    {
+        return 'page_index';
     }
 }
