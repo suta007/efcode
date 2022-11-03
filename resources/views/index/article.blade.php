@@ -85,7 +85,6 @@
 
 					</div>
 				@else
-					{{ Socialite::driver('facebook')->user()->getAvatar() }}
 					@php($user = Auth::guard('social')->user())
 					<div class="mb-2 flex">
 						<div class="row-span-2">
