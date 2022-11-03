@@ -21,7 +21,7 @@
 	<link rel="stylesheet" href="{{ asset('css/prism.css') }}">
 	<style>
 		html {
-			font-size: 14px;
+			font-size: 16px;
 		}
 	</style>
 	@yield('style')

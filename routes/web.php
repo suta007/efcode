@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\CommentController;
 use App\Models\Page;
 
 
@@ -24,7 +25,8 @@ Route::get('/', function () {
 Route::controller(IndexController::class)->group(function () {
     Route::get('/บทความ/{slug}', 'article')->name('acticle');
     Route::get('/หมวดหมู่/{slug}', 'category')->name('category');
-    Route::get('/แท๊ก/{slug}', 'tag')->name('tag');
+    Route::get('/แท็ก/{slug}', 'tag')->name('tag');
+    Route::post('/ออกจากระบบ', 'logout')->name('social.logout');
 });
 
 Route::get('/dashboard', function () {
@@ -44,3 +46,10 @@ Route::get('/user/page/slug/{slug}', [PageController::class, 'slug'])->name('use
 
 Route::get('/login/{provider}', [SocialController::class, 'redirect'])->where('provider', 'twitter|facebook|linkedin|google|github|bitbucket')->name('login.redirect');
 Route::get('/login/{provider}/callback', [SocialController::class, 'Callback'])->where('provider', 'twitter|facebook|linkedin|google|github|bitbucket')->name('login.callback');
+
+Route::middleware('auth:social')->group(function () {
+    Route::post('comment/store/{id}', [CommentController::class, 'store'])->name('comment.store');
+    Route::get('comment/get/{id}', [CommentController::class, 'show'])->name('comment.show');
+    Route::post('comment/update/{id}', [CommentController::class, 'update'])->name('comment.update');
+    Route::delete('comment/destroy/{id}', [CommentController::class, 'destroy'])->name('comment.destroy');
+});

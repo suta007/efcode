@@ -13,6 +13,7 @@ class SocialController extends Controller
 
     public function redirect($provider)
     {
+        session(['url.back' => url()->previous()]);
         return Socialite::driver($provider)->redirect();
     }
 
@@ -46,11 +47,14 @@ class SocialController extends Controller
 
         if ($user) {
             Auth::guard('social')->login($user);
-            return redirect('/');
+            //return redirect('/');
+            return redirect(session('url.back'));
         } else {
             //
         }
     }
+
+
     /**
      * Display a listing of the resource.
      *

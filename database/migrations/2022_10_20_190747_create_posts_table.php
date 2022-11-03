@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('category_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

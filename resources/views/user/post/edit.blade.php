@@ -14,7 +14,7 @@
 				<div class="text-xl font-bold text-web-700">แก้ไขบทความ</div>
 				<div>
 					<a href="{{ route('user.post.index') }}" class="btn-web mr-3"><i class="fa-solid fa-circle-left mr-2"></i>กลับ</a>
-					<a href="{{ route('user.post.show', $data->id) }}" class="btn-show rounded-lg py-3 px-4" target="_blank"><i class="fa-solid fa-eye mr-2"></i> ดูหน้าเว็บ</a>
+					<a href="{{ route('acticle', $data->slug) }}" class="btn-show rounded-lg py-3 px-4" target="_blank"><i class="fa-solid fa-eye mr-2"></i> ดูบทความ</a>
 				</div>
 			</div>
 			<div class="rounded-md bg-white py-4 px-8 shadow-md">

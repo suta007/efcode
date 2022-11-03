@@ -40,4 +40,9 @@ class Post extends Model
     {
         return 'posts_index';
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class)->whereNull('parent_id');
+    }
 }
