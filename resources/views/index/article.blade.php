@@ -88,10 +88,10 @@
 					@php($user = Auth::guard('social')->user())
 					<div class="mb-2 flex">
 						<div class="row-span-2">
-							<img src="{{ $reply->user->image }}" class="mr-2 h-12">
+							<img src="{{ $user->image }}" class="mr-2 h-12">
 						</div>
 						<div class="font-semibold">
-							{{ Auth::guard('social')->user()->name }}
+							{{ $user->name }}
 						</div>
 
 					</div>
