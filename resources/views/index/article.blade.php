@@ -120,7 +120,7 @@
 						</div>
 						<div class="prose max-w-none rounded bg-gray-50 px-4 py-2 prose-h1:my-3 prose-h2:my-2 prose-h3:my-1 prose-h4:my-1 prose-p:my-2 prose-ol:my-2 prose-ul:my-2 prose-li:my-0">
 							{!! Str::markdown($item->body) !!}
-							@if (Auth::guard('social')->id() == $item->user->id)
+							@if (Auth::guard('social')->id() == $item->user->id || Auth::guard('web')->check())
 								<div id="edit{{ $item->id }}"></div>
 								<div class="my-2 text-sm text-web-900">
 									<button type="button" data-id="{{ $item->id }}" class="edit btn-edit hover:font-bold">แก้ไข</button>
@@ -151,7 +151,7 @@
 									<div class="prose max-w-none rounded bg-gray-50 px-4 py-2 prose-h1:my-3 prose-h2:my-2 prose-h3:my-1 prose-h4:my-1 prose-p:my-2 prose-ol:my-2 prose-ul:my-2 prose-li:my-0">
 										{!! Str::markdown($reply->body) !!}
 
-										@if (Auth::guard('social')->id() == $reply->user->id)
+										@if (Auth::guard('social')->id() == $reply->user->id || Auth::guard('web')->check())
 											<div id="edit{{ $reply->id }}"></div>
 											<div class="my-2 text-sm text-web-900">
 												<button type="button" data-id="{{ $reply->id }}" class="edit btn-edit hover:font-bold">แก้ไข</button>

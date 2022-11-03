@@ -51,5 +51,8 @@ Route::middleware('auth:social')->group(function () {
     Route::post('comment/store/{id}', [CommentController::class, 'store'])->name('comment.store');
     Route::get('comment/get/{id}', [CommentController::class, 'show'])->name('comment.show');
     Route::post('comment/update/{id}', [CommentController::class, 'update'])->name('comment.update');
+});
+
+Route::middleware('auth')->group(function () {
     Route::delete('comment/destroy/{id}', [CommentController::class, 'destroy'])->name('comment.destroy');
 });
