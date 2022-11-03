@@ -47,12 +47,9 @@ Route::get('/user/page/slug/{slug}', [PageController::class, 'slug'])->name('use
 Route::get('/login/{provider}', [SocialController::class, 'redirect'])->where('provider', 'twitter|facebook|linkedin|google|github|bitbucket')->name('login.redirect');
 Route::get('/login/{provider}/callback', [SocialController::class, 'Callback'])->where('provider', 'twitter|facebook|linkedin|google|github|bitbucket')->name('login.callback');
 
-Route::middleware('auth:social')->group(function () {
+Route::middleware('auth')->group(function () {
     Route::post('comment/store/{id}', [CommentController::class, 'store'])->name('comment.store');
     Route::get('comment/get/{id}', [CommentController::class, 'show'])->name('comment.show');
     Route::post('comment/update/{id}', [CommentController::class, 'update'])->name('comment.update');
-});
-
-Route::middleware('auth')->group(function () {
     Route::delete('comment/destroy/{id}', [CommentController::class, 'destroy'])->name('comment.destroy');
 });

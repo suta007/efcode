@@ -27,7 +27,7 @@ class CommentController extends Controller
     public function show($id)
     {
         $data = Comment::findOrFail($id);
-        if ($data->social_id == Auth::guard('social')->id()) {
+        if ($data->social_id == Auth::guard('social')->id() || Auth::guard('web')->check()) {
             echo $data->body;
         }
     }
