@@ -86,6 +86,15 @@
 					</div>
 				@else
 					@php($user = Auth::guard('social')->user())
+					<div class="mb-2 flex">
+						<div class="row-span-2">
+							<img src="{{ $reply->user->image }}" class="mr-2 h-12">
+						</div>
+						<div class="font-semibold">
+							{{ Auth::guard('social')->user()->name }}
+						</div>
+
+					</div>
 					<form action="{{ route('comment.store', $data->id) }}" method="post">
 						@csrf
 						<label for="body" class="form-required my-2 block font-medium text-gray-900 dark:text-gray-400">ความคิดเห็นของคุณ </label>

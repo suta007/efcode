@@ -19,7 +19,7 @@ class CommentController extends Controller
 
         $inputData = $request->all();
         $inputData['post_id'] = $id;
-        $inputData['social_id'] = $id;
+        $inputData['social_id'] = Auth::guard('social')->id();
         Comment::create($inputData);
         return redirect()->back()->with('success', 'บันทึกความคิดเห็นแล้ว');
     }
