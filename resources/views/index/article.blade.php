@@ -9,7 +9,7 @@
 			Loading...
 		</div>
 	</div>
-	<div class="grid grid-cols-4 gap-4 rounded bg-white pt-4">
+	<div class="grid grid-cols-4 gap-4 rounded bg-white pt-4 pb-6">
 		<div class="col-span-full px-2 md:col-span-3">
 			<div class="mb-4">
 				<nav class="flex" aria-label="Breadcrumb">
