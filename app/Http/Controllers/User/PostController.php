@@ -129,6 +129,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $page = Post::findOrFail($id);
+        $page->Deltag();
+        $page->delete();
+        return redirect()->route('user.post.index')->with('info', 'ลบบทความเรียบร้อยแล้ว');
     }
 }
