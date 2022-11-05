@@ -25,7 +25,7 @@
 					<div class="mb-3 grid grid-cols-6 content-center gap-x-4">
 						<label for="description" class="col-span-1 flex md:justify-end">คำอธิบาย</label>
 						<div class="col-span-5">
-							<textarea name="description" id="description" class="w-full">{{ old('description') }}</textarea>
+							<textarea name="description" id="description" class="w-full rounded border border-gray-300 bg-gray-50 py-1 px-2 focus:border-web-900 focus:ring-web-900">{{ old('description') }}</textarea>
 						</div>
 					</div>
 
