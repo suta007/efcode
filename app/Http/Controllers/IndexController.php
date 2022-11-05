@@ -13,15 +13,19 @@ class IndexController extends Controller
 
     public function index($page = null, $slug = null)
     {
-        if (is_null($page)) {
-            $datas = Post::latest()->paginate(1);
-        } else if ($page == 'หมวดหมู่') {
+
+        $posts = Post::latest();
+        if ($page == 'หมวดหมู่') {
             $cate = Category::where('slug', $slug)->first();
-            $datas = Post::latest()->where('category_id', $cate->id)->paginate(6);
+            $posts->where('category_id', $cate->id);
         } else if ($page == 'แท็ก') {
             $tag = Tag::where('slug', $slug)->first();
-            $datas = $tag->posts;
+            foreach ($tag->posts as $item) {
+                $id[] = $item->id;
+            }
+            $posts->whereIn('id', $id);
         }
+        $datas = $posts->paginate(6);
         return view('index.index', compact('datas'));
     }
 

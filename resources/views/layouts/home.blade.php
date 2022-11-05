@@ -28,14 +28,14 @@
 	@yield('style')
 </head>
 
-<body class="line-numbers bg-slate-50 font-sans antialiased">
+<body class="line-numbers h-screen bg-slate-50 font-sans antialiased">
 	<div class="mx-auto max-w-screen-lg">
 		@include('layouts.navbar2')
 	</div>
 	<main class="mx-auto max-w-screen-lg">
 		@yield('content')
 	</main>
-
+	@yield('footer')
 	{{-- 	@vite(['resources/js/app.js']) --}}
 	<script src="{{ asset('js/jquery-3.6.1.min.js') }}"></script>
 	<script src="{{ asset('js/prism.js') }}"></script>
