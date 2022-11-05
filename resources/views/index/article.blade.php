@@ -9,8 +9,8 @@
 			Loading...
 		</div>
 	</div>
-	<div class="grid grid-cols-4 gap-4 rounded bg-white pt-4 pb-6">
-		<div class="col-span-full px-2 md:col-span-3">
+	<div class="grid grid-cols-4 gap-4 rounded">
+		<div class="col-span-full bg-white px-4 pt-4 pb-6 md:col-span-3">
 			<div class="mb-4">
 				<nav class="flex" aria-label="Breadcrumb">
 					<ol class="inline-flex items-center space-x-1 md:space-x-3">
@@ -174,7 +174,7 @@
 			</div>
 
 		</div>
-		<div class="col-span-full md:col-span-1">
+		<div class="col-span-full bg-white px-4 pt-4 pb-6 md:col-span-1">
 			@include('layouts.sidebar2')
 		</div>
 	</div>

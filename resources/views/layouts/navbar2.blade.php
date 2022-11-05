@@ -1,5 +1,5 @@
 <div class="mb-4 flex space-x-2 py-3">
-	<nav class="flex grow flex-wrap items-center">
+	<nav class="flex grow flex-wrap items-center bg-white">
 		<a href="/">
 			<img src="{{ asset('images/logo.png') }}" class="mr-2 h-12">
 		</a>
