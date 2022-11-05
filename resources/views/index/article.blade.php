@@ -42,7 +42,7 @@
 			<div class="mb-4 text-sm text-gray-700">
 				ผู้เขียน : {{ $data->user->name }}
 				@if (Auth::guard('web')->id() == $data->user->id)
-					<a href="{{ route('user.post.edit', $data->id) }}" target="_blank" class="btn-edit"><i class="fa-solid fa-pen-to-square"></i></a>
+					<a href="{{ route('user.post.edit', $data->id) }}" target="_blank" class="ml-2 text-sm text-green-700"><i class="fa-solid fa-pen-to-square"></i></a>
 				@endif
 				<br />
 				เผยแพร่เมื่อ : {{ FullThaiDate($data->created_at) }}
@@ -175,7 +175,7 @@
 
 		</div>
 		<div class="col-span-full md:col-span-1">
-			ccc
+			@include('layouts.sidebar2')
 		</div>
 	</div>
 

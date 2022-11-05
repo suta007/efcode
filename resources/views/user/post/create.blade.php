@@ -21,6 +21,14 @@
 					@csrf
 					<x-input type="text" val="name" label="ชื่อบทความ" :value="old('name')" class="col-span-5" lbcls="col-span-1" :errors="$errors" />
 					<x-input-picture type="text" val="picture" label="รูปบทความ" :value="old('picture')" class="col-span-4" lbcls="col-span-1" :errors="$errors" :required=false />
+
+					<div class="mb-3 grid grid-cols-6 content-center gap-x-4">
+						<label for="description" class="col-span-1 flex md:justify-end">คำอธิบาย</label>
+						<div class="col-span-5">
+							<textarea name="description" id="description" class="w-full">{{ old('description') }}</textarea>
+						</div>
+					</div>
+
 					<x-select val="category_id" label="หมวดหมู่" class="col-span-5" lbcls="col-span-1" :errors="$errors">
 						<option hidden>เลือกหมวดหมู่</option>
 						@foreach ($cate as $item)

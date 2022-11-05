@@ -18,7 +18,8 @@ class Post extends Model
         'content',
         'user_id',
         'category_id',
-        'picture'
+        'picture',
+        'description'
     ];
 
     public function tags()

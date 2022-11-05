@@ -75,6 +75,14 @@
     .tag a:hover {
         @apply text-web-700;
     }
+
+    .cate-list li a {
+        @apply text-sky-900;
+    }
+
+    .cate-list li a:hover {
+        @apply text-web-900;
+    }
 }
 
 @tailwind utilities;

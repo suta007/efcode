@@ -17,6 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug');
+            $table->string('description')->nullable();
             $table->string('picture')->nullable();
             $table->text('content');
             $table->integer('user_id')->unsigned();

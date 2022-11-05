@@ -1,5 +1,5 @@
 <div class="mb-4 flex space-x-2 py-3">
-	<nav class="container flex flex-wrap items-center">
+	<nav class="flex grow flex-wrap items-center">
 		<img src="{{ asset('images/logo.png') }}" class="mr-2 h-10">
 		<span class="font-bold text-red-800" style="font-size: 20px;">{{ config('app.name', 'Laravel') }}</span>
 		<button data-collapse-toggle="navbar-default" type="button" class="ml-auto rounded text-gray-500 hover:bg-gray-100 focus:ring-2 focus:ring-gray-200 md:hidden" aria-controls="navbar-default" aria-expanded="false">

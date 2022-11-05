@@ -18,11 +18,12 @@ use App\Models\Page;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('index.index');
-});
+}); */
 
 Route::controller(IndexController::class)->group(function () {
+    Route::get('/', 'index');
     Route::get('/บทความ/{slug}', 'article')->name('acticle');
     Route::get('/หมวดหมู่/{slug}', 'category')->name('category');
     Route::get('/แท็ก/{slug}', 'tag')->name('tag');

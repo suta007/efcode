@@ -2,33 +2,31 @@
 @section('title', 'หน้าแรก')
 @php
 	
-	$datas = App\Models\Post::all();
+	//$datas = App\Models\Post::all();
 	//$datas = App\Models\Post::search('vun')->paginate(6);
 	//dd($datas);
 @endphp
 @section('content')
-	@foreach ($datas as $item)
-		<a href="{{ route('acticle', $item->slug) }}">{{ $item->name }}</a><br>
-	@endforeach
 
-	<div>
-		<a href="{{ route('login.redirect', 'google') }}" class="dark:focus:ring-[#DD4B39]/55 mr-2 mb-2 inline-flex items-center rounded-lg bg-[#DD4B39] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#DD4B39]/90 focus:outline-none focus:ring-4 focus:ring-[#DD4B39]/50">
-			<i class="fa-brands fa-google mr-2 -ml-1"></i>
-			Sign in with Google
-		</a>
-
-		<a href="{{ route('login.redirect', 'facebook') }}" class="dark:focus:ring-[#3b5998]/55 mr-2 mb-2 inline-flex items-center rounded-lg bg-[#3b5998] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#3b5998]/90 focus:outline-none focus:ring-4 focus:ring-[#3b5998]/50">
-			<i class="fa-brands fa-facebook-f mr-2 -ml-1"></i>
-			Sign in with Facebook
-		</a>
-		<a href="{{ route('login.redirect', 'twitter') }}" class="dark:focus:ring-[#1da1f2]/55 mr-2 mb-2 inline-flex items-center rounded-lg bg-[#1da1f2] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#1da1f2]/90 focus:outline-none focus:ring-4 focus:ring-[#1da1f2]/50">
-			<i class="fa-brands fa-twitter mr-2 -ml-1"></i>
-			Sign in with Twitter
-		</a>
-		<a href="{{ route('login.redirect', 'github') }}" class="mr-2 mb-2 inline-flex items-center rounded-lg bg-[#24292F] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#24292F]/90 focus:outline-none focus:ring-4 focus:ring-[#24292F]/50 dark:hover:bg-[#050708]/30 dark:focus:ring-gray-500">
-			<i class="fa-brands fa-github mr-2 -ml-1"></i>
-			Sign in with Github
-		</a>
+	<div class="grid grid-cols-1 gap-4 p-2 md:grid-cols-2 md:p-4 lg:grid-cols-3">
+		@foreach ($datas as $item)
+			<div class="inline-block min-h-[400px] rounded-lg bg-white p-2 shadow hover:p-4">
+				<a href="{{ route('acticle', $item->slug) }}">
+					<div>
+						<img src="{{ asset($item->picture) }}" class="rounded">
+					</div>
+					<div class="mt-2 flex justify-center font-bold">
+						{{ $item->name }}
+					</div>
+					<div class="prose mt-2 max-w-none bg-gray-50 p-2 px-4 py-2 text-gray-700 prose-h1:my-3 prose-h2:my-2 prose-h3:my-1 prose-h4:my-1 prose-p:my-2 prose-ol:my-2 prose-ul:my-2 prose-li:my-0">
+						@if (!is_null($item->description))
+							{!! Str::markdown($item->description) !!}
+						@endif
+					</div>
+				</a>
+			</div>
+		@endforeach
 
 	</div>
+	<div class="my-4">{!! $datas->onEachSide(5)->links() !!}</div>
 @endsection

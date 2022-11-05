@@ -16,10 +16,6 @@ class Tag extends Model
     protected $fillable = [
         'name', 'slug', 'weight'
     ];
-    public function testtag()
-    {
-        echo "Test Tag<br>";
-    }
 
     public function addtag()
     {

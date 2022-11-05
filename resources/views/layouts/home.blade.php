@@ -19,6 +19,7 @@
 	<link rel="stylesheet" href="{{ asset('css/datatable.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/css-tooltip.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/prism.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/jquery.tagcloud.css') }}">
 	<style>
 		html {
 			font-size: 16px;
@@ -38,6 +39,7 @@
 	{{-- 	@vite(['resources/js/app.js']) --}}
 	<script src="{{ asset('js/jquery-3.6.1.min.js') }}"></script>
 	<script src="{{ asset('js/prism.js') }}"></script>
+	<script src="{{ asset('js/jquery.tagcloud.js') }}"></script>
 	<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 	<script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 	{{-- 	@include('sweetalert::alert') --}}
