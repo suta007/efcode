@@ -1,5 +1,5 @@
 @extends('layouts.home')
-@section('title', 'หน้าแรก')
+@section('title', $data->name)
 @section('content')
 	<div id="loading" class="fixed top-0 left-0 z-30 flex min-h-full min-w-full flex-row items-center justify-center bg-slate-900/50">
 		<div class="basis-1 text-center">

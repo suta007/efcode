@@ -21,7 +21,7 @@
 						@foreach ($datas as $item)
 							<tr>
 								<td class="dt-center dt-nowrap" style="width:1%;">{{ $item->id }}</td>
-								<td><a href="{{ route('user.page.slug', $item->slug) }}">{{ $item->name }}</a></td>
+								<td><a href="{{ route('page', $item->slug) }}">{{ $item->name }}</a></td>
 								<td class="dt-center dt-nowrap" style="width:1%;">
 									<a href="{{ route('user.page.show', $item->id) }}" class="btn-show" data-tooltip="แสดง {{ $item->name }}"><i class="fa-solid fa-eye"></i></a>
 									<a href="{{ route('user.page.edit', $item->id) }}" class="btn-edit" data-tooltip="แก้ไข {{ $item->name }}"><i class="fa-solid fa-pen-to-square"></i></a>

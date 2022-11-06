@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Page;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -43,6 +44,12 @@ class IndexController extends Controller
     public function tag($slug)
     {
         return $this->index('แท็ก', $slug);
+    }
+
+    public function page($slug)
+    {
+        $data = Page::whereSlug($slug)->first();
+        return view('index.page', compact('data'));
     }
 
     public function logout(Request $request)

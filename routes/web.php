@@ -28,6 +28,7 @@ Route::controller(IndexController::class)->group(function () {
     Route::get('/หมวดหมู่/{slug}', 'category')->name('category');
     Route::get('/แท็ก/{slug}', 'tag')->name('tag');
     Route::post('/ออกจากระบบ', 'logout')->name('social.logout');
+    Route::get('/{slug}', 'page')->name('page');
 });
 
 Route::get('/dashboard', function () {
