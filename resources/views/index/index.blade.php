@@ -26,9 +26,9 @@
 					</div>
 				</a>
 				<div class="mt-2 flex text-sm text-gray-500">
-					หมวดหมู : <a href="{{ route('category', $item->cate->slug) }}" class="hover:text-web-900">{{ $item->cate->name }}</a>
+					หมวดหมู : <a href="{{ route('category', $item->cate->slug) }}" class="ml-2 hover:text-web-900">{{ $item->cate->name }}</a>
 				</div>
-				<div class="mt-2 flex text-sm text-gray-500">
+				<div class="mt-2 flex flex-wrap text-sm text-gray-500">
 					@foreach ($item->tags as $tag)
 						<a href="{{ route('tag', $tag->slug) }}" class="mr-3 hover:text-web-900"><i class="fa-solid fa-tag mr-1"></i>{{ $tag->name }}</a>
 					@endforeach

@@ -9,7 +9,8 @@ use Laravel\Scout\Searchable;
 
 class Page extends Model
 {
-    use HasFactory, HasTag, Searchable;
+    //use HasFactory, HasTag, Searchable;
+    use HasFactory, Searchable;
     protected $table = 'pages';
 
     protected $fillable = [

@@ -51,7 +51,7 @@ class PageController extends Controller
         $inputData["slug"] = Slug::slugify($request->name);
         $inputData["user_id"] = auth()->user()->id;
         $page = Page::create($inputData);
-        $page->Addtag($request->tag);
+        //$page->Addtag($request->tag);
         return redirect()->route('user.page.index')->with('success', 'สร้างหน้าเว็บเรียบร้อยแล้ว');
     }
 
@@ -105,7 +105,7 @@ class PageController extends Controller
         $inputData["slug"] = Slug::slugify($request->name);
         $result = Page::findOrFail($id);
         $result->update($inputData);
-        $result->Addtag($request->tag);
+        //$result->Addtag($request->tag);
         return redirect()->back()->with('success', 'บันทึกข้อมูลแล้ว');
     }
 
@@ -117,9 +117,10 @@ class PageController extends Controller
      */
     public function destroy($id)
     {
-        $page = Page::findOrFail($id);
-        $page->Deltag();
-        $page->delete();
+        $page = Page::destroy($id);
+        //$page = Page::findOrFail($id);
+        //$page->Deltag();
+        //$page->delete();
         return redirect()->route('user.page.index')->with('info', 'ลบหน้าเว็บเรียบร้อยแล้ว');
     }
 }
