@@ -54,7 +54,8 @@ class PostController extends Controller
         $inputData["slug"] = Slug::slugify($request->name);
         $inputData["user_id"] = auth()->user()->id;
         if (!empty($request->picture)) {
-            $inputData["picture"] = ltrim($request->picture, config('app.url') . '/');
+            //$inputData["picture"] = ltrim($request->picture, config('app.url') . '/');
+            $inputData["picture"] = parse_url($request->picture)["path"];
         }
         $post = Post::create($inputData);
         $post->Addtag($request->tag);
@@ -113,7 +114,8 @@ class PostController extends Controller
         $inputData = $request->all();
         $inputData["slug"] = Slug::slugify($request->name);
         if (!empty($request->picture)) {
-            $inputData["picture"] = ltrim($request->picture, config('app.url') . '/');
+            //$inputData["picture"] = ltrim($request->picture, config('app.url') . '/');
+            $inputData["picture"] = parse_url($request->picture)["path"];
         }
         $result = Post::findOrFail($id);
         $result->update($inputData);
