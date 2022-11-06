@@ -22,6 +22,15 @@ use App\Models\Page;
     return view('index.index');
 }); */
 
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth:web', 'verified'])->name('dashboard');
+
+require __DIR__ . '/auth.php';
+require __DIR__ . '/user.php';
+
 Route::controller(IndexController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/บทความ/{slug}', 'article')->name('acticle');
@@ -30,13 +39,6 @@ Route::controller(IndexController::class)->group(function () {
     Route::post('/ออกจากระบบ', 'logout')->name('social.logout');
     Route::get('/{slug}', 'page')->name('page');
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth:web', 'verified'])->name('dashboard');
-
-require __DIR__ . '/auth.php';
-require __DIR__ . '/user.php';
 
 //Route::resource('admin/user', UserController::class, ['names' => 'admin.user']);
 
