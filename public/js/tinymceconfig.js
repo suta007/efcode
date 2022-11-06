@@ -2,7 +2,26 @@ var editor_config = {
     path_absolute: "/",
     selector: 'textarea#content',
     relative_urls: false,
+
     plugins: 'codesample code table lists link image preview fullscreen media',
+
+    codesample_languages: [
+        { text: 'HTML/XML', value: 'markup' },
+        { text: 'JavaScript', value: 'javascript' },
+        { text: 'CSS', value: 'css' },
+        { text: 'PHP', value: 'php' },
+        { text: 'Python', value: 'python' },
+        { text: 'Bash', value: 'bash' },
+        { text: 'CSV', value: 'csv' },
+        { text: 'GIT', value: 'git' },
+        { text: 'REGEX', value: 'regex' },
+        { text: 'SASS', value: 'sass' },
+        { text: 'SCSS', value: 'scss' },
+        { text: 'SQL', value: 'sql' },
+        { text: 'Markdown', value: 'markdown' },
+
+      ],    
+
     toolbar: 'codesample | undo redo | bold italic removeformat | alignleft aligncenter alignright alignjustify | indent outdent bullist numlist | link image| preview media fullscreen | code',
     content_css: "/css/app.css",
     content_style: "body {padding: 20px;font-family:Sarabun;}",

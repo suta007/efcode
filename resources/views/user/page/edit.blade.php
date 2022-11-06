@@ -49,6 +49,7 @@
 	</div>
 @endsection
 @section('js-file')
+	<script src="{{ asset('js/prism.js') }}" data-manual></script>
 	<script src="{{ asset('js/jquery.flexdatalist.min.js') }}"></script>
 	<script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
 	<script src="{{ asset('js/tinymceconfig.js') }}"></script>
