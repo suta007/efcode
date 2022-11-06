@@ -31,14 +31,7 @@ Route::get('/dashboard', function () {
 require __DIR__ . '/auth.php';
 require __DIR__ . '/user.php';
 
-Route::controller(IndexController::class)->group(function () {
-    Route::get('/', 'index');
-    Route::get('/บทความ/{slug}', 'article')->name('acticle');
-    Route::get('/หมวดหมู่/{slug}', 'category')->name('category');
-    Route::get('/แท็ก/{slug}', 'tag')->name('tag');
-    Route::post('/ออกจากระบบ', 'logout')->name('social.logout');
-    Route::get('/{slug}', 'page')->name('page');
-});
+
 
 //Route::resource('admin/user', UserController::class, ['names' => 'admin.user']);
 
@@ -56,4 +49,13 @@ Route::middleware('auth')->group(function () {
     Route::get('comment/get/{id}', [CommentController::class, 'show'])->name('comment.show');
     Route::post('comment/update/{id}', [CommentController::class, 'update'])->name('comment.update');
     Route::delete('comment/destroy/{id}', [CommentController::class, 'destroy'])->name('comment.destroy');
+});
+
+Route::controller(IndexController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::get('/บทความ/{slug}', 'article')->name('acticle');
+    Route::get('/หมวดหมู่/{slug}', 'category')->name('category');
+    Route::get('/แท็ก/{slug}', 'tag')->name('tag');
+    Route::post('/ออกจากระบบ', 'logout')->name('social.logout');
+    Route::get('/{slug}', 'page')->name('page');
 });

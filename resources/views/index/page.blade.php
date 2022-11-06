@@ -10,7 +10,7 @@
 		</div>
 	</div>
 	<div class="grid grid-cols-4 gap-4 rounded">
-		<div class="col-span-full bg-white px-4 pt-4 pb-6 md:col-span-3">
+		<div class="col-span-full bg-white px-4 pt-4 pb-6 md:col-span-4">
 			<div class="mb-4">
 				<nav class="flex" aria-label="Breadcrumb">
 					<ol class="inline-flex items-center space-x-1 md:space-x-3">
@@ -36,7 +36,7 @@
 			<div class="mb-4 text-sm text-gray-700">
 				ผู้เขียน : {{ $data->user->name }}
 				@if (Auth::guard('web')->id() == $data->user->id)
-					<a href="{{ route('user.post.edit', $data->id) }}" target="_blank" class="ml-2 text-sm text-green-700"><i class="fa-solid fa-pen-to-square"></i></a>
+					<a href="{{ route('user.page.edit', $data->id) }}" target="_blank" class="ml-2 text-sm text-green-700"><i class="fa-solid fa-pen-to-square"></i></a>
 				@endif
 				<br />
 				เผยแพร่เมื่อ : {{ FullThaiDate($data->created_at) }}
