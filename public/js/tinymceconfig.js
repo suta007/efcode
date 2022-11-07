@@ -19,6 +19,7 @@ var editor_config = {
         { text: 'SCSS', value: 'scss' },
         { text: 'SQL', value: 'sql' },
         { text: 'Markdown', value: 'markdown' },
+        { text: 'LATEX', value: 'latex' },
 
       ],    
 
