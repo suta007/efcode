@@ -40,6 +40,18 @@
 		};
 	</script>
 	<script src="{{ asset('js/MathJax/tex-mml-svg.js') }}" id="MathJax-script" async></script>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-K18FHRM26L"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'G-K18FHRM26L');
+	</script>
 </head>
 
 <body class="line-numbers h-screen bg-slate-50 font-sans antialiased">
