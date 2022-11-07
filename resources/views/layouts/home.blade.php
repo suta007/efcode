@@ -26,6 +26,20 @@
 		}
 	</style>
 	@yield('style')
+	<script>
+		MathJax = {
+			tex: {
+				inlineMath: [
+					['$', '$'],
+					['\\(', '\\)']
+				]
+			},
+			svg: {
+				fontCache: 'global'
+			}
+		};
+	</script>
+	<script src="{{ asset('js/MathJax/tex-mml-svg.js') }}" id="MathJax-script" async></script>
 </head>
 
 <body class="line-numbers h-screen bg-slate-50 font-sans antialiased">

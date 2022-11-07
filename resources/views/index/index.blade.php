@@ -7,7 +7,6 @@
 	//dd($datas);
 @endphp
 @section('content')
-
 	<div class="grid grid-cols-1 gap-4 p-2 sm:grid-cols-2 sm:p-4 md:grid-cols-3">
 		@foreach ($datas as $item)
 			<div class="inline-block min-h-[400px] rounded-lg bg-white p-4 shadow hover:p-2">
