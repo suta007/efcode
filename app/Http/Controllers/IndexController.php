@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Auth;
 class IndexController extends Controller
 {
 
-    public function index($page = null, $slug = null)
+    public function index()
     {
 
-        $posts = Post::latest();
+        /*         $posts = Post::latest();
         if ($page == 'หมวดหมู่') {
             $cate = Category::where('slug', $slug)->first();
             $posts->where('category_id', $cate->id);
@@ -25,8 +25,27 @@ class IndexController extends Controller
                 $id[] = $item->id;
             }
             $posts->whereIn('id', $id);
+        } */
+        $datas = Post::latest()->exclude('content')->paginate(6);
+        return view('index.index', compact('datas'));
+    }
+
+
+
+    public function category($slug)
+    {
+        $cate = Category::where('slug', $slug)->first();
+        $datas = Post::latest()->where('category_id', $cate->id)->exclude('content')->paginate(6);
+        return view('index.index', compact('datas'));
+    }
+
+    public function tag($slug)
+    {
+        $tag = Tag::where('slug', $slug)->first();
+        foreach ($tag->posts as $item) {
+            $id[] = $item->id;
         }
-        $datas = $posts->paginate(6);
+        $datas = Post::latest()->whereIn('id', $id)->exclude('content')->paginate(6);
         return view('index.index', compact('datas'));
     }
 
@@ -34,16 +53,6 @@ class IndexController extends Controller
     {
         $data = Post::whereSlug($slug)->first();
         return view('index.article', compact('data'));
-    }
-
-    public function category($slug)
-    {
-        return $this->index('หมวดหมู่', $slug);
-    }
-
-    public function tag($slug)
-    {
-        return $this->index('แท็ก', $slug);
     }
 
     public function page($slug)
