@@ -26,7 +26,7 @@ class IndexController extends Controller
             }
             $posts->whereIn('id', $id);
         } */
-        $datas = Post::latest()->except('content')->paginate(6);
+        $datas = Post::latest()->paginate(6);
         return view('index.index', compact('datas'));
     }
 
@@ -35,7 +35,7 @@ class IndexController extends Controller
     public function category($slug)
     {
         $cate = Category::where('slug', $slug)->first();
-        $datas = Post::latest()->where('category_id', $cate->id)->except('content')->paginate(6);
+        $datas = Post::latest()->where('category_id', $cate->id)->paginate(6);
         return view('index.index', compact('datas'));
     }
 
@@ -45,7 +45,7 @@ class IndexController extends Controller
         foreach ($tag->posts as $item) {
             $id[] = $item->id;
         }
-        $datas = Post::latest()->whereIn('id', $id)->except('content')->paginate(6);
+        $datas = Post::latest()->whereIn('id', $id)->paginate(6);
         return view('index.index', compact('datas'));
     }
 
