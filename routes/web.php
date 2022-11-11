@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Models\Page;
 
 
@@ -24,9 +25,7 @@ use App\Models\Page;
 
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth:web', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth:web', 'verified'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/user.php';
