@@ -15,7 +15,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $datas = Comment::all()->take(10);
+        //$datas = Comment::all()->sortByDesc('updated_at')->take(10);
+        $datas = Comment::latest()->paginate(10);
         return view('dashboard', compact('datas'));
     }
 

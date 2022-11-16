@@ -106,7 +106,7 @@
 				@endif
 
 				@foreach ($data->comments as $item)
-					<div class="comment mb-4 rounded bg-gray-100 p-6">
+					<div class="comment mb-4 rounded bg-gray-100 p-6" id="comment{{ $item->id }}">
 						<div class="mb-2 flex">
 							<div class="row-span-2">
 								<img src="{{ $item->user->image }}" class="mr-2 h-12">
@@ -135,7 +135,7 @@
 
 						@if (!is_null($item->replies))
 							@foreach ($item->replies as $reply)
-								<div class="my-2 ml-6 rounded border border-gray-500 p-4">
+								<div class="my-2 ml-6 rounded border border-gray-500 p-4" id="comment{{ $reply->id }}">
 									<div class="mb-2 flex">
 										<div class="row-span-2">
 											<img src="{{ $reply->user->image }}" class="mr-2 h-12">
